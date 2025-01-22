@@ -186,3 +186,29 @@ inpRange.addEventListener('change',function(){
     console.log(selectedFilter.id)
     applyFilteronImg
 })
+inpRange.addEventListener('input', function() {  // Изменили с 'change' на 'input', чтобы изменения применялись сразу
+    filterValue.innerText = inpRange.value + "%";
+    selectedFilter = document.querySelector('.filter .active');
+    
+    // Применяем фильтр в зависимости от выбранной опции
+    if (selectedFilter.id === 'brightness') {
+        brightness = inpRange.value;
+    }
+    else if (selectedFilter.id === 'contrast') {
+        contrast = inpRange.value;
+    }
+    else if (selectedFilter.id === 'blurs') {
+        blurs = inpRange.value;
+    }
+    else if (selectedFilter.id === 'grayscale') {
+        grayscale = inpRange.value;
+    }
+    else if (selectedFilter.id === 'saturate') {
+        saturate = inpRange.value;
+    }
+    else if (selectedFilter.id === 'opacity') {
+        opacity = inpRange.value;
+    }
+
+    applyFilteronImg();  // Применяем фильтры сразу
+});
